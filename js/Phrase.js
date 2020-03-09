@@ -31,9 +31,9 @@ selected element's hide CSS class with the show CSS class.
 
 class phrase { 
 
-    constructor(phrase) {
+    constructor(Phrase) {
 
-        this.phrase = phrase;
+        this.Phrase = Phrase;
     
     }
 
