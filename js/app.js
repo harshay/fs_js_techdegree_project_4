@@ -7,5 +7,5 @@
  const game   = new game();
  */
 
-const phrase1 = new Phrase('Life is like a box of chocolates'); 
+const phrase1 = new phrase('Life is like a box of chocolates'); 
 console.log(`Phrase - phrase: ${phrase1.phrase1}`); 
