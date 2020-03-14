@@ -13,22 +13,32 @@ await
 
 */
 
-class game { 
+class Game { 
 
     constructor() {
 
         this.missed       = 0;
-        this.phrases      = createPhrases();
+        this.phrases      = this.createPhrases();
         this.activePhrase = null;
 
     }
 
     createPhrases() {
 
-        all_phrases = ['deprive','multiply','target','solve','await'];
+        let all_phrases = [{phrase: "deprive"},{phrase: "multiply"},{phrase:'target'},{phrase:'solve'},{phrase:'await'}];
 
         return all_phrases;
 
     }; 
+
+    getRandomPhrase() {
+
+        
+        let randomNumber = Math.floor(Math.random()*5);  
+
+        return this.phrases[randomNumber];
+
+
+    };
     
 }; 
