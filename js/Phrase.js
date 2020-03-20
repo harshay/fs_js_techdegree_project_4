@@ -39,4 +39,29 @@ class Phrase {
 
     }; 
 
+    //check if letter selected by player matches the letter in the phrase (to be guessed)
+    checkLetter(letter) {
+
+        let keyboard = document.getElementsByClassName("key");
+        
+        keyboard.addEventListener("click",(event) => {
+
+            let selectedLetter = event.target.value;
+
+            return console.log(selectedLetter);
+
+
+        });
+
+
+    }; 
+
+    showMatchedLetter(letter) {
+
+
+
+    }; 
+    
+
+
 }; 

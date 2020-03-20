@@ -25,7 +25,14 @@ class Game {
 
     createPhrases() {
 
-        let all_phrases = [{phrase: "deprive"},{phrase: "multiply"},{phrase:'target'},{phrase:'solve'},{phrase:'await'}];
+        let all_phrases = 
+        [
+        new Phrase("deprive"),
+        new Phrase("multiply"),
+        new Phrase("target"),
+        new Phrase("solve"),
+        new Phrase("await")    
+        ];
 
         return all_phrases;
 
@@ -40,5 +47,48 @@ class Game {
 
 
     };
+
+    startGame() {
+
+        let mainCover = document.getElementById("overlay");
+        mainCover.style.display = "none";
+
+        let selectedPhraseObj =  this.getRandomPhrase();
+        
+        selectedPhraseObj.addPhraseToDisplay(); 
+        
+        this.activePhrase = selectedPhraseObj;
+
+        selectedPhraseObj.checkLetter();
+
+
+    }; 
+
+
+    handleInteraction(){ 
+
+        
+
+
+    };
     
+
+    checkForWin() {
+
+
+
+    };
+
+    removeLife(){
+
+
+
+    };
+
+    gameOver(gameWon) {
+
+
+
+    };
+
 }; 

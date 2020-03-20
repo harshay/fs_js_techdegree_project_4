@@ -3,15 +3,32 @@
  * app.js */
 
 
-
+/*
 const game = new Game(); 
 const randomPhrase = game.getRandomPhrase(); 
 const phrase = new Phrase(randomPhrase.phrase); 
 phrase.addPhraseToDisplay(); 
-  
+ */
 
+/*
+const game = new Game(); 
+game.startGame(); 
+console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+*/
 
+let game;
 
+let startGameBtn = document.getElementById("btn__reset");
+
+startGameBtn.addEventListener("click",() => {
+
+    game = new Game(); 
+
+    game.startGame(); 
+
+    
+
+});
 
 
 
