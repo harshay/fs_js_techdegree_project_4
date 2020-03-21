@@ -60,7 +60,7 @@ class Game {
         this.activePhrase = selectedPhraseObj;
 
 
-        console.log(selectedPhraseObj.checkLetter());
+        console.log(selectedPhraseObj.checkLetter().letterMatch);
 
 
     }; 
