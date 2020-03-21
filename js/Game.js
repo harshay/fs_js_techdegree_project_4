@@ -59,7 +59,8 @@ class Game {
         
         this.activePhrase = selectedPhraseObj;
 
-        selectedPhraseObj.checkLetter();
+
+        console.log(selectedPhraseObj.checkLetter());
 
 
     }; 
