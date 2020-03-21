@@ -47,11 +47,11 @@ class Phrase {
         keyboard.addEventListener("click",(event) => {
 
             let selectedLetter = event.target.value;
-            let 
+            
 
             for(let i = 0; i < phraseSplitChars; i += 1) {
             
-                if (selectedLetter = this.phraseSplit[i]) {
+                if (selectedLetter.textContent = this.phraseSplit[i]) {
 
                     return true;
                 }
