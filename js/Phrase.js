@@ -43,27 +43,40 @@ class Phrase {
     checkLetter(letter) {
 
         let keyboard = document.getElementsByClassName("key");
-        
-        keyboard.addEventListener("click",(event) => {
+        let keyboardLength = keyboard.length;
+        let letterMatch = 0;
+        let matched;
 
-            let selectedLetter = event.target.value;
-            let letterMatch;
+            for(i = 0;i < keyboardLength; i += 1) {
 
-            for(let i = 0; i < phraseSplitChars; i += 1) {
-            
-                if (selectedLetter.textContent = this.phraseSplit[i]) {
+                keyboard[i].addEventListener("click",(event) => {
 
-                    letterMatch =  true;
-                }
-                else { 
+                    let selectedLetter = event.target.value;
+                    
+                    for(j = 0;j < this.phraseSplitChars; j += 1) {
+                        
+                        if(this.phraseSplit[j] = selectedLetter) {
 
-                    letterMatch =  false;
-                };
+                            letterMatch += 1;
 
-            };        
-            
-        });
+                        };
 
+                    };
+                    
+                    
+                });
+
+            };
+
+            if(letterMatch != 0) {
+
+                matched = true;
+
+            } else {
+
+                matched = false;
+
+            }
 
     }; 
 
@@ -76,3 +89,23 @@ class Phrase {
 
 
 }; 
+
+
+/*
+
+
+
+ for(let i = 0; i < phraseSplitChars; i += 1) {
+            
+                if (selectedLetter.textContent = this.phraseSplit[i]) {
+
+                    letterMatch =  true;
+                }
+                else { 
+
+                    letterMatch =  false;
+                };
+
+            };    
+
+*/
