@@ -27,6 +27,7 @@ startGameBtn.addEventListener("click",() => {
     game.startGame(); 
 
     
+    
 
 });
 

@@ -10,6 +10,7 @@ class Phrase {
     constructor(phrase) {
 
         this.phrase = phrase;
+        
     
     }
 
@@ -47,15 +48,18 @@ class Phrase {
         let letterMatch = 0;
         let matched;
 
-            for(i = 0;i < keyboardLength; i += 1) {
+            for(let i = 0; i < keyboardLength; i += 1) {
 
                 keyboard[i].addEventListener("click",(event) => {
 
-                    let selectedLetter = event.target.value;
+                    let selectedLetter = event.target.innerHTML;
+                    letterMatch = 0;
                     
-                    for(j = 0;j < this.phraseSplitChars; j += 1) {
+                    for(let j = 0; j < this.phraseSplitChars; j += 1) {
+
                         
-                        if(this.phraseSplit[j] = selectedLetter) {
+                        
+                        if(this.phraseSplit[j] === selectedLetter) {
 
                             letterMatch += 1;
 
@@ -63,20 +67,23 @@ class Phrase {
 
                     };
                     
+                    if(letterMatch !== 0) {
+
+                        matched = true;
+        
+                    } else {
+        
+                        matched = false;
+        
+                    };
+                    
+                    
+                    
                     
                 });
 
             };
-
-            if(letterMatch != 0) {
-
-                matched = true;
-
-            } else {
-
-                matched = false;
-
-            }
+            
 
     }; 
 

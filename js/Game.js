@@ -61,7 +61,8 @@ class Game {
 
 
         selectedPhraseObj.checkLetter();
-
+        
+        
 
 
     }; 
