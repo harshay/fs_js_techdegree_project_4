@@ -10,9 +10,18 @@ class Phrase {
     constructor(phrase) {
 
         this.phrase = phrase;
-        
+        this.phraseSplit = this.phraseArray();
     
-    }
+    };
+
+
+    phraseArray() {
+
+        let phraseSplit = this.phrase.split(""); 
+
+        return phraseSplit;
+
+    };
 
     addPhraseToDisplay() {
 
@@ -24,15 +33,13 @@ class Phrase {
         //split by the number of letters and place each letter in a list item
         //push letter to a newly created list item
         //append list item to unordered list and set class name
-
-        let phraseSplit = this.phrase.split(""); 
-
-        let phraseSplitChars = phraseSplit.length;
+        
+        let phraseSplitChars = this.phraseSplit.length;
 
         for(let i = 0; i < phraseSplitChars; i += 1) {
             
             let phraseCharItem = document.createElement("li"); 
-            phraseCharItem.innerHTML = phraseSplit[i];
+            phraseCharItem.innerHTML = this.phraseSplit[i];
             phraseCharItem.className = "letter"; 
             phraseDivUl.appendChild(phraseCharItem);
         };
@@ -43,47 +50,7 @@ class Phrase {
     //check if letter selected by player matches the letter in the phrase (to be guessed)
     checkLetter(letter) {
 
-        let keyboard = document.getElementsByClassName("key");
-        let keyboardLength = keyboard.length;
-        let letterMatch = 0;
-        let matched;
-
-            for(let i = 0; i < keyboardLength; i += 1) {
-
-                keyboard[i].addEventListener("click",(event) => {
-
-                    let selectedLetter = event.target.innerHTML;
-                    letterMatch = 0;
-                    
-                    for(let j = 0; j < this.phraseSplitChars; j += 1) {
-
-                        
-                        
-                        if(this.phraseSplit[j] === selectedLetter) {
-
-                            letterMatch += 1;
-
-                        };
-
-                    };
-                    
-                    if(letterMatch !== 0) {
-
-                        matched = true;
-        
-                    } else {
-        
-                        matched = false;
-        
-                    };
-                    
-                    
-                    
-                    
-                });
-
-            };
-            
+       
 
     }; 
 
