@@ -50,7 +50,31 @@ class Phrase {
     //check if letter selected by player matches the letter in the phrase (to be guessed)
     checkLetter(letter) {
 
-       
+        let letterMatch = 0;
+        let matched;
+                
+        for(let j = 0; j < this.phraseSplit.length ; j += 1) {                    
+            
+            if(this.phraseSplit[j] === letter) {
+
+                letterMatch += 1;
+
+            };
+
+        };
+        
+        if(letterMatch !== 0) {
+
+            matched = true;
+
+        } else {
+
+            matched = false;
+
+        };
+        
+        
+        return matched;
 
     }; 
 

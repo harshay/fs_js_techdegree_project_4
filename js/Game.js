@@ -68,9 +68,9 @@ class Game {
     }; 
 
 
-    handleInteraction(){ 
+    handleInteraction(button){ 
 
-        
+        this.activePhrase.checkLetter(button.innerHTML); 
 
 
     };

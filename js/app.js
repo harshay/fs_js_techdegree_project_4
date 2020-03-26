@@ -21,8 +21,7 @@ let game;
 let startGameBtn = document.getElementById("btn__reset");
 let keyboard = document.getElementsByClassName("key");
 let keyboardLength = keyboard.length;
-let letterMatch = 0;
-let matched;
+
 
 
 
@@ -39,7 +38,7 @@ startGameBtn.addEventListener("click",() => {
 
             keyboard[i].addEventListener("click",(event) => {
 
-                let selectedLetter = event.target.innerHTML;
+                game.handleInteraction(event.target);
                 
                 
             });
