@@ -72,6 +72,8 @@ class Game {
 
         this.activePhrase.checkLetter(button.innerHTML); 
 
+        this.activePhrase.showMatchedLetter(button.innerHTML); 
+
 
     };
     
@@ -84,7 +86,20 @@ class Game {
 
     removeLife(){
 
+        let triesElement = document.getElementById("scoreboard").children; 
 
+        if(this.activePhrase.checkLetter() === false) {
+
+            
+            this.missed += 1; 
+
+        };           
+
+        for(let i = 0; i < this.missed; i += 1){
+
+            triesElement[i].remove();
+
+        };
 
     };
 

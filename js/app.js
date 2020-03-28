@@ -38,7 +38,10 @@ startGameBtn.addEventListener("click",() => {
 
             keyboard[i].addEventListener("click",(event) => {
 
+
                 game.handleInteraction(event.target);
+
+                game.removeLife();
                 
                 
             });

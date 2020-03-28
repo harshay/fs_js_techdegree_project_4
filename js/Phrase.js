@@ -11,6 +11,7 @@ class Phrase {
 
         this.phrase = phrase;
         this.phraseSplit = this.phraseArray();
+        this.selPhraseChar = null;
     
     };
 
@@ -40,7 +41,7 @@ class Phrase {
             
             let phraseCharItem = document.createElement("li"); 
             phraseCharItem.innerHTML = this.phraseSplit[i];
-            phraseCharItem.className = "letter"; 
+            phraseCharItem.classList.add("letter","hide",this.phraseSplit[i]); 
             phraseDivUl.appendChild(phraseCharItem);
         };
        
@@ -52,10 +53,13 @@ class Phrase {
 
         let letterMatch = 0;
         let matched;
+        
                 
         for(let j = 0; j < this.phraseSplit.length ; j += 1) {                    
             
             if(this.phraseSplit[j] === letter) {
+
+                this.selPhraseChar = this.phraseSplit[j];
 
                 letterMatch += 1;
 
@@ -80,7 +84,20 @@ class Phrase {
 
     showMatchedLetter(letter) {
 
+        //get all letters in the phrase class 
+        let phraseElements = document.getElementsByClassName("letter");
+        let phraseElementsLen = phraseElements.length; 
 
+
+        for(let i = 0; i < phraseElementsLen; i += 1) {
+
+            if(phraseElements[i].innerHTML === letter) { 
+
+                phraseElements[i].classList.replace("hide","show")
+
+            };
+
+        };
 
     }; 
     
