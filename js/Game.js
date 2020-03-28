@@ -86,21 +86,19 @@ class Game {
 
     removeLife(){
 
-        let triesElement = document.getElementById("scoreboard").children; 
+        let triesElement = document.getElementsByClassName("tries");
 
         if(this.activePhrase.checkLetter() === false) {
 
             
             this.missed += 1; 
 
+            
+            triesElement[0].remove();
+
+
         };           
-
-        for(let i = 0; i < this.missed; i += 1){
-
-            triesElement[i].remove();
-
-        };
-
+        
     };
 
     gameOver(gameWon) {
