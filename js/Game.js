@@ -118,9 +118,12 @@ class Game {
 
             img.src = "images/lostHeart.png"; 
 
+            console.log(img);
+
             imgListEntry.className = this.missed + "lost";
 
             triesElement.appendChild(imgListEntry);
+
             imgListEntry.appendChild(img);
             
 
