@@ -117,10 +117,11 @@ class Game {
             var img = document.createElement('img'); 
 
             img.src = "images/lostHeart.png"; 
-            
-            imgListEntry.className = this.missed + "lost"
-            imgListEntry.appendChild(imgListEntry);
-            
+
+            imgListEntry.className = this.missed + "lost";
+
+            triesElement.appendChild(imgListEntry);
+            imgListEntry.appendChild(img);
             
 
 
