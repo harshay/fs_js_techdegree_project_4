@@ -102,9 +102,7 @@ class Game {
     removeLife(button){
 
         let triesElement = document.getElementsByClassName("tries");
-        let triesParent  = document.getElementById("scoreboard").children; 
-
-        console.log(triesParent);        
+        let triesParent  = document.getElementById("scoreboard");            
 
         if(this.activePhrase.checkLetter(button.innerHTML) === false) {
 
@@ -116,31 +114,52 @@ class Game {
             var imgListEntry = document.createElement('li');             
             var img = document.createElement('img'); 
 
-            img.src = "images/lostHeart.png"; 
-
-            console.log(img);
+            img.src = "images/lostHeart.png";             
 
             imgListEntry.className = this.missed + "lost";
 
-            triesElement.appendChild(imgListEntry);
+            triesParent.appendChild(imgListEntry);
 
             imgListEntry.appendChild(img);
-            
 
-
-        }
-        else {
+        } else {
 
             this.correct += 1;
 
+            console.log(this.correct);
+
         };
-      
+
+        if(this.checkForWin() === true) { 
+
+            this.gameOver(); 
+
+        };
+        
+        if(this.missed === 5) { 
+            
+            let mainTitle = document.getElementById("game-over-message");
+            let mainCover = document.getElementById("overlay");
+            mainCover.style.display = "";
+            mainCover.classList.replace("start","lose");
+
+            mainTitle.innerHTML = "Sorry you lost, better luck next time!";
+
+        };      
 
     };
 
     gameOver(gameWon) {
 
+        let mainTitle = document.getElementById("game-over-message");
+        let mainCover = document.getElementById("overlay");
+        
+        mainCover.style.display = "";
+        
+        mainCover.classList.replace("start","win");
 
+        
+        mainTitle.innerHTML = "You Won, Great Job!";
 
     };
 

@@ -22,7 +22,10 @@ let startGameBtn = document.getElementById("btn__reset");
 let keyboard = document.getElementsByClassName("key");
 let keyboardLength = keyboard.length;
 
-
+//problems to be fixed :
+//game doesnt reset
+//letter already guessed corretly increments correct guesses when the phrase has repeating charaters
+//selecting the correct character already guessed again increments the correct count
 
 
 
@@ -50,61 +53,6 @@ startGameBtn.addEventListener("click",() => {
         
 
 });
-
-
-
-
-
-
-
-
-
-
-
-/*********** ignore code below its for reference purposes only */
-
-
-    /*
-        //move to app.js
-        for(let i = 0; i < keyboardLength; i += 1) {
-
-
-            keyboard[i].addEventListener("click",(event) => {
-
-                let selectedLetter = event.target.innerHTML;
-                letterMatch = 0;
-                
-                for(let j = 0; j < phraseArrlength ; j += 1) {                    
-                    
-                    if(phraseArr[j] === selectedLetter) {
-
-                        letterMatch += 1;
-
-                    };
-
-                };
-                
-                if(letterMatch !== 0) {
-
-                    matched = true;
-
-                } else {
-
-                    matched = false;
-
-                };
-                
-                
-                
-                
-            });
-
-        };
-        */
-    
-     
-
-
 
 
 
