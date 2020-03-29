@@ -59,6 +59,8 @@ class Phrase {
             
             if(this.phraseSplit[j] === letter) {
 
+               
+
                 this.selPhraseChar = this.phraseSplit[j];
 
                 letterMatch += 1;

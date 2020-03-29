@@ -41,7 +41,7 @@ startGameBtn.addEventListener("click",() => {
 
                 game.handleInteraction(event.target);
 
-                game.removeLife();
+                game.removeLife(event.target);
                 
                 
             });

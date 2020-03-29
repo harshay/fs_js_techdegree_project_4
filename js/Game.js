@@ -20,6 +20,7 @@ class Game {
         this.missed       = 0;
         this.phrases      = this.createPhrases();
         this.activePhrase = null;
+        this.correct      = 0;
 
     }
 
@@ -80,25 +81,57 @@ class Game {
 
     checkForWin() {
 
+        let gameWon; 
 
+        if(this.correct ===  this.activePhrase.phraseSplit.length) {
+
+            gameWon = true;
+
+        }
+
+        else {
+
+            gameWon = false; 
+
+        };
+
+        return gameWon; 
 
     };
 
-    removeLife(){
+    removeLife(button){
 
         let triesElement = document.getElementsByClassName("tries");
+        let triesParent  = document.getElementById("scoreboard").children; 
 
-        if(this.activePhrase.checkLetter() === false) {
+        console.log(triesParent);        
+
+        if(this.activePhrase.checkLetter(button.innerHTML) === false) {
 
             
             this.missed += 1; 
 
-            
             triesElement[0].remove();
 
+            var imgListEntry = document.createElement('li');             
+            var img = document.createElement('img'); 
 
-        };           
-        
+            img.src = "images/lostHeart.png"; 
+            
+            imgListEntry.className = this.missed + "lost"
+            imgListEntry.appendChild(imgListEntry);
+            
+            
+
+
+        }
+        else {
+
+            this.correct += 1;
+
+        };
+      
+
     };
 
     gameOver(gameWon) {
