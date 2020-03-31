@@ -9,6 +9,7 @@ startGameBtn.addEventListener("click",() => {
 
     let keyboard = document.getElementsByClassName("key");
     let keyboardLength = keyboard.length;
+    let keyboardParent = document.getElementById("qwerty");
 
     // creates a new game object, gives access to all its properties and methods
     game = new Game(); 
@@ -24,6 +25,8 @@ startGameBtn.addEventListener("click",() => {
          game.removeLife(event.target);
 
     };
+
+
      
         //move to app.js
         for(let i = 0; i < keyboardLength; i += 1) {
@@ -39,15 +42,16 @@ startGameBtn.addEventListener("click",() => {
                 
             });
 
-            //keys with 'keydown' event listener (keyboard button press)
-            addEventListener("qwerty",(event) => {
 
-                hirl(event);
-                
-                
-            });
+        }; 
+        
+        
+       //keys with 'keydown' event listener (keyboard button press)
+       keyboardParent.addEventListener("keyup",(event) => {
 
-        };        
+        hirl(event);
+
+       });
 
 });
 
