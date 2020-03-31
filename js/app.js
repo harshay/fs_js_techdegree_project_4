@@ -5,8 +5,6 @@
 let game;
 
 let startGameBtn = document.getElementById("btn__reset");
-let keyboard = document.getElementsByClassName("key");
-let keyboardLength = keyboard.length;
 
 //problems to be fixed :
 //game doesnt reset
@@ -15,6 +13,9 @@ let keyboardLength = keyboard.length;
 
 
 startGameBtn.addEventListener("click",() => {
+
+    let keyboard = document.getElementsByClassName("key");
+    let keyboardLength = keyboard.length;
 
     // creates a new game object, gives access to all its properties and methods
     game = new Game(); 
@@ -34,6 +35,8 @@ startGameBtn.addEventListener("click",() => {
         //move to app.js
         for(let i = 0; i < keyboardLength; i += 1) {
 
+            //note : event bubbling can also be used instead of attaching the event listner to all keys below 
+            // it can also be attached to the div within which the keys are
 
             //keys with 'click' event listener
             keyboard[i].addEventListener("click",(event) => {
