@@ -3,14 +3,7 @@
  * app.js */
 
 let game;
-
 let startGameBtn = document.getElementById("btn__reset");
-
-//problems to be fixed :
-//game doesnt reset
-//letter  guessed with repeating charaters breaks the check for win method
-//selecting the correct character already guessed again increments the correct count
-
 
 startGameBtn.addEventListener("click",() => {
 
