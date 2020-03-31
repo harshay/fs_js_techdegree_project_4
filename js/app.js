@@ -5,6 +5,7 @@
 let game;
 let startGameBtn = document.getElementById("btn__reset");
 
+
 startGameBtn.addEventListener("click",() => {
 
     let keyboard = document.getElementsByClassName("key");
@@ -45,7 +46,7 @@ startGameBtn.addEventListener("click",() => {
 
         }; 
         
-        
+
         
        //keys with 'keydown' event listener (keyboard button press)
        addEventListener("keyup",(event) => {

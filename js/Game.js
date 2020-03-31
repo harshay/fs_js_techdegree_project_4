@@ -69,6 +69,8 @@ class Game {
         //runs the aptd method 
         selectedPhraseObj.addPhraseToDisplay(); 
         
+        //assign to the property within this class 
+        //this means it can be used in other methods
         this.activePhrase = selectedPhraseObj;
 
 
