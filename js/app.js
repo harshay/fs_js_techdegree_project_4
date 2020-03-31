@@ -40,7 +40,7 @@ startGameBtn.addEventListener("click",() => {
             });
 
             //keys with 'keydown' event listener (keyboard button press)
-            keyboard[i].addEventListener("keyup",(event) => {
+            addEventListener("qwerty",(event) => {
 
                 hirl(event);
                 
