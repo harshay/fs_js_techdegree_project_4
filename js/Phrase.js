@@ -2,9 +2,6 @@
  * Project 4 - OOP Game App
  * Phrase.js   */
 
-
-
-
 class Phrase { 
 
     constructor(phrase) {
@@ -33,8 +30,7 @@ class Phrase {
         //pick up the selected random phrase
         //split by the number of letters and place each letter in a list item
         //push letter to a newly created list item
-        //append list item to unordered list and set class name
-        
+        //append list item to unordered list and set class name        
         let phraseSplitChars = this.phraseSplit.length;
 
         for(let i = 0; i < phraseSplitChars; i += 1) {
@@ -51,36 +47,7 @@ class Phrase {
     //check if letter selected by player matches the letter in the phrase (to be guessed)
     checkLetter(letter) {
 
-        let letterMatch = 0;
-        let matched;
-        
-                
-        for(let j = 0; j < this.phraseSplit.length ; j += 1) {                    
-            
-            if(this.phraseSplit[j] === letter) {
-
-               
-
-                this.selPhraseChar = this.phraseSplit[j];
-
-                letterMatch += 1;
-
-            };
-
-        };
-        
-        if(letterMatch !== 0) {
-
-            matched = true;
-
-        } else {
-
-            matched = false;
-
-        };
-        
-        
-        return matched;
+        return this.phrase.includes(letter);
 
     }; 
 
@@ -107,22 +74,3 @@ class Phrase {
 
 }; 
 
-
-/*
-
-
-
- for(let i = 0; i < phraseSplitChars; i += 1) {
-            
-                if (selectedLetter.textContent = this.phraseSplit[i]) {
-
-                    letterMatch =  true;
-                }
-                else { 
-
-                    letterMatch =  false;
-                };
-
-            };    
-
-*/

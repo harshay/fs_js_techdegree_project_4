@@ -137,8 +137,8 @@ class Game {
         let triesParent  = document.getElementById("scoreboard");            
 
         if(this.activePhrase.checkLetter(button.innerHTML) === false) {
-
             
+
             this.missed += 1; 
 
             triesElement[0].remove();
@@ -183,6 +183,8 @@ class Game {
 
             mainTitle.innerHTML = "Sorry you lost, better luck next time!";
 
+            this.resetActions() 
+
         };      
 
     };
@@ -192,12 +194,48 @@ class Game {
         let mainTitle = document.getElementById("game-over-message");
         let mainCover = document.getElementById("overlay");
         
+        //unhide the main overlay when game completed
         mainCover.style.display = "";
         
         mainCover.classList.replace("start","win");
 
         
         mainTitle.innerHTML = "You Won, Great Job!";
+
+        this.resetActions() 
+
+    };
+
+
+    // trigger the method below when the game ends to change it to its original state
+    resetActions(button) {
+
+        //reset count of missed and correct values
+        this.missed = 0;
+        this.correct = 0;
+
+        //elements.classList.contains(wrong)  ,  elements.classList.contains(chosen) then remove
+        let allKeys = document.getElementsByClassName("key"); 
+
+        for(let i = 0; i < allKeys.length; i += 1) {
+            
+            allKeys[i].classList.remove("wrong","chosen");
+          
+        };
+        
+        //remove all existing hearts
+
+        //repopulate hearts with class = 'tries'
+
+        //remove phrase character list elements from display
+        let phraseDiv = document.getElementById("phrase"); 
+        let phraseDivUl = phraseDiv.children[0];
+
+
+        while (phraseDivUl.firstChild) {
+            phraseDivUl.removeChild(phraseDivUl.firstChild);
+        }
+
 
     };
 
