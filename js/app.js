@@ -48,11 +48,22 @@ startGameBtn.addEventListener("click",() => {
            
        });
 
-       
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
        //keys with 'keyboard press' event listener
-       keyboardParent.addEventListener("keydown",(event) => {
+    window.addEventListener("keydown",(event) => {
+
+        console.log(event.target);
+       
+   });
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+       //keys with 'keyboard press' event listener
+       window.addEventListener("keydown",(event) => {
 
 
         if(event.target.tagName === "BUTTON"){
@@ -63,5 +74,4 @@ startGameBtn.addEventListener("click",() => {
        
    });
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/
