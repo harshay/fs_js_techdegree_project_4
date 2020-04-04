@@ -74,15 +74,13 @@ class Game {
         this.activePhrase = selectedPhraseObj;
 
 
-        selectedPhraseObj.checkLetter();
-        
-        
+        selectedPhraseObj.checkLetter();  
 
 
     }; 
 
 
-    handleInteraction(button){ 
+    handleInteraction(button){         
 
         //new phrase object gives access to all its methods
         //runs the check letter object part of the phrase class
@@ -134,7 +132,10 @@ class Game {
     removeLife(button){
 
         let triesElement = document.getElementsByClassName("tries");
-        let triesParent  = document.getElementById("scoreboard");            
+        let triesParent  = document.getElementById("scoreboard");    
+        
+        
+        //console.log(triesElement);
 
         if(this.activePhrase.checkLetter(button.innerHTML) === false) {
             
@@ -148,7 +149,7 @@ class Game {
 
             img.src = "images/lostHeart.png";             
 
-            imgListEntry.className = this.missed + "lost";
+            imgListEntry.className = "tries";
 
             triesParent.appendChild(imgListEntry);
 
@@ -163,8 +164,6 @@ class Game {
             button.disabled = true;
 
             button.className = "chosen";
-
-            console.log(this.correct);
 
         };
 
@@ -183,6 +182,7 @@ class Game {
 
             mainTitle.innerHTML = "Sorry you lost, better luck next time!";
 
+            //reset game
             this.resetActions() 
 
         };      
@@ -202,12 +202,13 @@ class Game {
         
         mainTitle.innerHTML = "You Won, Great Job!";
 
+        //reset game
         this.resetActions() 
 
     };
 
 
-    // trigger the method below when the game ends to change it to its original state
+    // trigger the method below when the game ends to reset it to its original state
     resetActions(button) {
 
         //reset count of missed and correct values
@@ -215,19 +216,33 @@ class Game {
         this.correct = 0;
 
         //elements.classList.contains(wrong)  ,  elements.classList.contains(chosen) then remove
-        let allKeys = document.getElementsByClassName("key"); 
+        let allKeys = document.querySelectorAll("button"); 
 
         for(let i = 0; i < allKeys.length; i += 1) {
             
-            allKeys[i].classList.remove("wrong","chosen");
+            allKeys[i].className = "key";
+
+            //enable all keys when the game restarts
+            allKeys[i].disabled = false;
           
         };
+        /////////////////////////////////////////////////////////////////
+        //remove all existing hearts                
+        let brokenHearts = document.getElementsByClassName("tries");    
+              
         
-        //remove all existing hearts
+        for(let i = 0; i < brokenHearts.length; i += 1) {
+            
+           brokenHearts[i].remove();
+          
+        };        
 
         //repopulate hearts with class = 'tries'
+        
 
-        //remove phrase character list elements from display
+        //////////////////////////////////////////////////////////////////
+
+        //remove phrase character list elements from display (they will be recreated when the game starts again)
         let phraseDiv = document.getElementById("phrase"); 
         let phraseDivUl = phraseDiv.children[0];
 

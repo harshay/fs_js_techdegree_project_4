@@ -25,9 +25,9 @@ startGameBtn.addEventListener("click",() => {
  let hirl = (event) => {
 
     //runs the handlintr method pass the event.target value as an input
-    game.handleInteraction(event.target);
+    game.handleInteraction(event);
     //runs the removeLife method pass the event.target value as an input
-    game.removeLife(event.target);
+    game.removeLife(event);
 
 };
 
@@ -38,11 +38,10 @@ startGameBtn.addEventListener("click",() => {
 
        //keys with 'click' event listener
        keyboardParent.addEventListener("click",(event) => {
-
-
+        
             if(event.target.tagName === "BUTTON"){
 
-                hirl(event);
+                hirl(event.target);
 
             };           
            
@@ -52,26 +51,29 @@ startGameBtn.addEventListener("click",() => {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
        //keys with 'keyboard press' event listener
-    window.addEventListener("keydown",(event) => {
+    document.addEventListener("keydown",(event) => {
 
-        console.log(event.target);
-       
+        let selectedLetter = event.key;
+        let allKeys = document.getElementsByClassName("key");
+        let selKeyElem;
+
+        //pick up the selected key element depending on the key pressed
+        for(let i = 0; i < allKeys.length; i += 1){
+
+            if(allKeys[i].innerHTML === selectedLetter) {
+
+                selKeyElem = allKeys[i]; 
+
+            };
+
+        };
+        
+        hirl(selKeyElem);
+
    });
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-       //keys with 'keyboard press' event listener
-       window.addEventListener("keydown",(event) => {
 
 
-        if(event.target.tagName === "BUTTON"){
 
-            hirl(event);
-
-        };           
-       
-   });
-
-*/
