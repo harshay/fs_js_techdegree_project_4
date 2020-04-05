@@ -15,6 +15,7 @@ class Game {
         this.phrases      = this.createPhrases();
         this.activePhrase = null;
         this.correct      = 0;
+        this.gameWinFlag  = null;
 
     }
 
@@ -70,14 +71,38 @@ class Game {
 
     handleInteraction(button){         
 
+        //disable selected button
+        button.disabled = true;
+
         //new phrase object gives access to all its methods
         //runs the check letter object part of the phrase class
         //button parameter within the handle interaction method is being passed a value by calling it in app.js 
         //the parameter value passed can now be picked up by the methods run in the phrase class
-        this.activePhrase.checkLetter(button.innerHTML); 
+        if(this.activePhrase.checkLetter(button.innerHTML) === false) {
 
-        this.activePhrase.showMatchedLetter(button.innerHTML); 
+            
+            button.className = "wrong";  
 
+            this.removeLife(button);
+
+        } 
+        else {
+
+            button.className = "chosen";
+
+            this.activePhrase.showMatchedLetter(button.innerHTML); 
+
+            this.correct += 1;
+            
+            this.gameWinFlag = this.checkForWin();
+
+        };
+
+        if(this.gameWinFlag === true){
+
+            this.gameOver();
+
+        };
 
     };
     
@@ -117,72 +142,51 @@ class Game {
 
     };
 
-    //method will remove a life after an incorrect guess and add to the correct counter for a correcr guess
+    //method will remove a life after an incorrect guess and add to the correct counter for a correct guess
     removeLife(button){
 
         let triesElement = document.getElementsByClassName("tries");
 
-        if(this.activePhrase.checkLetter(button.innerHTML) === false) {
-            
+        if(this.activePhrase.checkLetter(button.innerHTML) === false) {            
 
             this.missed += 1; 
 
             let heartTrack = (this.missed) - 1;
 
-            triesElement[heartTrack].children[0].src = "images/lostHeart.png";
+            triesElement[heartTrack].children[0].src = "images/lostHeart.png";    
 
-            button.className = "wrong";
-        
-            button.disabled = true;
+        };    
 
-        } else {
+        if (this.missed === 5) {
 
-            this.correct += 1;
-
-            button.disabled = true;
-
-            button.className = "chosen";
+            this.gameOver();
 
         };
-
-        if(this.checkForWin() === true) { 
-
-            this.gameOver(); 
-
-        };
-        
-        if(this.missed === 5) { 
-            
-            let mainTitle = document.getElementById("game-over-message");
-            let mainCover = document.getElementById("overlay");
-            mainCover.style.display = "";
-            mainCover.classList.replace("start","lose");
-
-            mainTitle.innerHTML = "Sorry you lost, better luck next time!";
-
-            //reset game
-            this.resetActions() 
-
-        };      
 
     };
 
     //method will display an overlay when they game is won or lost
-    gameOver(gameWon) {
+    gameOver(gameWon){
 
         let mainTitle = document.getElementById("game-over-message");
-        let mainCover = document.getElementById("overlay");
+        let mainCover = document.getElementById("overlay");       
+         //unhide the main overlay when game completed
+         mainCover.style.display = ""; 
         
-        //unhide the main overlay when game completed
-        mainCover.style.display = "";
-        
-        mainCover.classList.replace("start","win");
 
-        
-        mainTitle.innerHTML = "You Won, Great Job!";
+        if(this.gameWinFlag === true){
+           
+            mainCover.classList.replace("start","win");
+            mainTitle.innerHTML = "You Won, Great Job!";
+
+        } else {
+
+            mainTitle.innerHTML = "Sorry you lost, better luck next time!";
+
+        };
 
         //reset game
-        this.resetActions() 
+        this.resetActions();
 
     };
 
@@ -194,7 +198,7 @@ class Game {
         this.missed = 0;
         this.correct = 0;
 
-        //elements.classList.contains(wrong)  ,  elements.classList.contains(chosen) then remove
+        //enable all keys, reset class name on all keys
         let allKeys = document.querySelectorAll("button"); 
 
         for(let i = 0; i < allKeys.length; i += 1) {
@@ -205,7 +209,7 @@ class Game {
             allKeys[i].disabled = false;
           
         };
-        /////////////////////////////////////////////////////////////////
+        
         //change image source for all hearts back to original                
         let hearts = document.getElementsByClassName("tries");    
               
@@ -214,9 +218,7 @@ class Game {
             
             hearts[i].children[0].src = "images/liveHeart.png";
           
-        };        
-
-        //////////////////////////////////////////////////////////////////
+        };
 
         //remove phrase character list elements from display (they will be recreated when the game starts again)
         let phraseDiv = document.getElementById("phrase"); 
@@ -225,7 +227,7 @@ class Game {
 
         while (phraseDivUl.firstChild) {
             phraseDivUl.removeChild(phraseDivUl.firstChild);
-        }
+        };
 
 
     };

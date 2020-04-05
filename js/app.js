@@ -36,13 +36,11 @@ startGameBtn.addEventListener("click",() => {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
- //funtion will run two methods within the newly created game object
+ //funtion will run the handle interaction method within the newly created game object
  let hirl = (event) => {
 
     //runs the handlintr method pass the event.target value as an input
-    game.handleInteraction(event);
-    //runs the removeLife method pass the event.target value as an input
-    game.removeLife(event);
+    game.handleInteraction(event);    
 
 };
 

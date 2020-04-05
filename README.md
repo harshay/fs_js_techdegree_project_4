@@ -1,2 +1,3 @@
-# fs_js_techdegree_project_4
+- Random background colour function added which will change the background colour on 
+the click/press of the keyboard.
  
