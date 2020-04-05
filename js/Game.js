@@ -2,20 +2,6 @@
  * Project 4 - OOP Game App
  * Game.js */
 
-/*
-//phrases
-
-deprive
-multiply
-target
-solve
-await
-
-*/
-
-//.chosen
-//.wrong
-
 
 //always use this when calling a method or using a property within the same class (unless var is local to the mehod)
 class Game { 
@@ -129,33 +115,23 @@ class Game {
 
     };
 
+    //
     removeLife(button){
 
         let triesElement = document.getElementsByClassName("tries");
-        let triesParent  = document.getElementById("scoreboard");    
-        
-        
-        //console.log(triesElement);
 
         if(this.activePhrase.checkLetter(button.innerHTML) === false) {
             
 
             this.missed += 1; 
 
-            triesElement[0].remove();
+            let heartTrack = (this.missed) - 1;
 
-            var imgListEntry = document.createElement('li');             
-            var img = document.createElement('img'); 
-
-            img.src = "images/lostHeart.png";             
-
-            imgListEntry.className = "tries";
-
-            triesParent.appendChild(imgListEntry);
-
-            imgListEntry.appendChild(img);
+            triesElement[heartTrack].children[0].src = "images/lostHeart.png";
 
             button.className = "wrong";
+        
+            button.disabled = true;
 
         } else {
 
@@ -189,6 +165,7 @@ class Game {
 
     };
 
+    //method will display an overlay when they game is won or lost
     gameOver(gameWon) {
 
         let mainTitle = document.getElementById("game-over-message");
@@ -227,18 +204,15 @@ class Game {
           
         };
         /////////////////////////////////////////////////////////////////
-        //remove all existing hearts                
-        let brokenHearts = document.getElementsByClassName("tries");    
+        //change image source for all hearts back to original                
+        let hearts = document.getElementsByClassName("tries");    
               
         
-        for(let i = 0; i < brokenHearts.length; i += 1) {
+        for(let i = 0; i < hearts.length; i += 1) {
             
-           brokenHearts[i].remove();
+            hearts[i].children[0].src = "images/liveHeart.png";
           
         };        
-
-        //repopulate hearts with class = 'tries'
-        
 
         //////////////////////////////////////////////////////////////////
 
