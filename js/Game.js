@@ -1,4 +1,5 @@
 /* Treehouse FSJS Techdegree
+ * Harshay
  * Project 4 - OOP Game App
  * Game.js */
 
@@ -17,7 +18,7 @@ class Game {
 
     }
 
-     //creates an array of phrase objects 
+     //method creates an array of phrase objects 
     createPhrases() {
 
         let all_phrases = 
@@ -33,6 +34,7 @@ class Game {
 
     }; 
 
+    //method will pick up and return a random phrase object 
     getRandomPhrase() {
 
         
@@ -43,7 +45,7 @@ class Game {
 
     };
 
-
+    //method will assign the selected phrase object and assign it to this.active phrase
     startGame() {
 
         let mainCover = document.getElementById("overlay");
@@ -79,7 +81,7 @@ class Game {
 
     };
     
-
+    //method will check if the game has been won
     checkForWin() {
 
         let gameWon; 
@@ -115,7 +117,7 @@ class Game {
 
     };
 
-    //
+    //method will remove a life after an incorrect guess and add to the correct counter for a correcr guess
     removeLife(button){
 
         let triesElement = document.getElementsByClassName("tries");

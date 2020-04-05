@@ -1,4 +1,5 @@
 /* Treehouse FSJS Techdegree
+ * Harshay
  * Project 4 - OOP Game App
  * app.js */
 
@@ -7,6 +8,20 @@ let startGameBtn = document.getElementById("btn__reset");
 let keyboardParent = document.getElementById("qwerty");
 let keyboard = document.getElementsByClassName("key");
 let keyboardLength = keyboard.length;  
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//function below added for the exceeds expetation grade 
+//function will change the backgroud colour when a key is clicked/pressed
+let backgroudColourGame = () => { 
+
+    let randomNumber = Math.floor(Math.random()*4);  
+    
+    let backgroundArray = ["tan", "white","grey","pink"]; 
+
+    document.body.style.backgroundColor = backgroundArray[randomNumber];
+
+};
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 startGameBtn.addEventListener("click",() => {
@@ -44,10 +59,11 @@ startGameBtn.addEventListener("click",() => {
                 hirl(event.target);
 
             };           
+
+             //exceeds expectation
+             backgroudColourGame();
            
        });
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
        //keys with 'keyboard press' event listener
@@ -69,6 +85,9 @@ startGameBtn.addEventListener("click",() => {
         };
         
         hirl(selKeyElem);
+        
+        //exceeds expectation
+        backgroudColourGame();
 
    });
 

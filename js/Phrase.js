@@ -1,4 +1,5 @@
 /* Treehouse FSJS Techdegree
+ * Harshay
  * Project 4 - OOP Game App
  * Phrase.js   */
 
@@ -12,7 +13,7 @@ class Phrase {
     
     };
 
-
+    //method will split the the phrase into an array of characters
     phraseArray() {
 
         let phraseSplit = this.phrase.split(""); 
@@ -21,6 +22,7 @@ class Phrase {
 
     };
 
+    //method will add a phrase to the newly started game 
     addPhraseToDisplay() {
 
         //ul which will contain all list item letters
@@ -51,6 +53,7 @@ class Phrase {
 
     }; 
 
+    //method will reveal the selected phrase letter on the screen if the selected letter matches a char in the phrase
     showMatchedLetter(letter) {
 
         //get all letters in the phrase class 
