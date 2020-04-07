@@ -39,7 +39,7 @@ class Game {
     getRandomPhrase() {
 
         
-        let randomNumber = Math.floor(Math.random()*5);  
+        let randomNumber = Math.floor(Math.random()*this.phrases.length);  
 
         return this.phrases[randomNumber];
 
@@ -54,16 +54,13 @@ class Game {
 
         //returs a random object
         let selectedPhraseObj =  this.getRandomPhrase();
-        
-        //runs the aptd method 
-        selectedPhraseObj.addPhraseToDisplay(); 
-        
+
         //assign to the property within this class 
         //this means it can be used in other methods
-        this.activePhrase = selectedPhraseObj;
-
-
-        selectedPhraseObj.checkLetter();  
+        this.activePhrase = this.getRandomPhrase();
+        
+        //runs the aptd method 
+        this.activePhrase.addPhraseToDisplay();     
 
 
     }; 
@@ -96,11 +93,11 @@ class Game {
             
             this.gameWinFlag = this.checkForWin();
 
-        };
+            if(this.gameWinFlag === true){
 
-        if(this.gameWinFlag === true){
-
-            this.gameOver();
+                this.gameOver();
+    
+            };
 
         };
 
@@ -146,16 +143,10 @@ class Game {
     removeLife(button){
 
         let triesElement = document.getElementsByClassName("tries");
-
-        if(this.activePhrase.checkLetter(button.innerHTML) === false) {            
-
-            this.missed += 1; 
-
-            let heartTrack = (this.missed) - 1;
-
-            triesElement[heartTrack].children[0].src = "images/lostHeart.png";    
-
-        };    
+        
+        triesElement[this.missed].children[0].src = "images/lostHeart.png";   
+      
+        this.missed += 1; 
 
         if (this.missed === 5) {
 
