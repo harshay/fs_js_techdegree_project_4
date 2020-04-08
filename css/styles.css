@@ -37,10 +37,13 @@ li, ol, ul {
 
 h2 {
   margin: 0;
+  font-family: Comic Sans MS;
   text-transform: uppercase;
   font-size: var(--font-size-large);
   margin: 0;
 }
+
+/*Comic Sans MS*/
 
 h1 {
   font-size: 30px;
@@ -180,7 +183,7 @@ button {
 }
 
 .start {
-  background-color: #3a3f58;
+  background-color: teal;
 }
 
 .start a {

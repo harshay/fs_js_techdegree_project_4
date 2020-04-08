@@ -56,10 +56,12 @@ startGameBtn.addEventListener("click",() => {
 
                 hirl(event.target);
 
+                //exceeds expectation
+                backgroudColourGame();
+
             };           
 
-             //exceeds expectation
-             backgroudColourGame();
+             
            
        });
 
